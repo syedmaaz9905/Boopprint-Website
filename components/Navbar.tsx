@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { FiSun, FiMoon, FiMenu } from "react-icons/fi";
 import Sidebar from "./Sidebar";
 import { AnimatePresence, motion } from "framer-motion";
+import LogoImg from '../app/assets/images/logo.png';
 
 type NavbarProps = {
     theme: string;

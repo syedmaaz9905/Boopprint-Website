@@ -19,3 +19,7 @@
 .text-foreground {
     color: var(--foreground);
 }
+
+.custom-class {
+    background-color: var(--gray-200);
+}
