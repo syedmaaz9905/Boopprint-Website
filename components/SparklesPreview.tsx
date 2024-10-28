@@ -3,6 +3,9 @@ import React from "react";
 import { SparklesCore } from "./ui/sparkles";
 
 export function SparklesPreview() {
+
+    const maxSize = typeof window !== "undefined" && window.innerWidth < 640 ? 1.5 : 3;
+
     return (
         <div className="w-full bg-[#f7fafc] dark:bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
             <h1 className="text-3xl md:text-7xl lg:text-9xl font-bold text-center text-black dark:text-white relative z-20">
@@ -19,7 +22,7 @@ export function SparklesPreview() {
                 <SparklesCore
                     background="transparent"
                     minSize={0.4}
-                    maxSize={3}
+                    maxSize={maxSize}
                     particleDensity={800}
                     className="w-full h-full"
                     particleColor="#04428a"

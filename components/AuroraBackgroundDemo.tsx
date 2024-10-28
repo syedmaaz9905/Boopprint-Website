@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "./ui/aurora-background";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import Link from "next/link";
 
 export function AuroraBackgroundDemo() {
     return (
@@ -26,14 +27,16 @@ export function AuroraBackgroundDemo() {
                 </div>
                 {/* <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2"> */}
                 <div className="flex justify-center text-center">
-                    <HoverBorderGradient
-                        containerClassName="rounded-full"
-                        as="button"
-                        className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-                    >
-                        <AceternityLogo />
-                        <span>Adopt Now!</span>
-                    </HoverBorderGradient>
+                    <Link href="/adoption">
+                        <HoverBorderGradient
+                            containerClassName="rounded-full"
+                            as="button"
+                            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+                        >
+                            <AceternityLogo />
+                            <span>Adopt Now!</span>
+                        </HoverBorderGradient>
+                    </Link>
                 </div>
                 {/* </button> */}
             </motion.div>

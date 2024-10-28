@@ -4,6 +4,7 @@ import { SparklesCore } from "./ui/sparkles";
 import { TypewriterEffectSmoothDemo } from "./TypewriterEffectSmoothDemo";
 import { SparklesPreview } from "./SparklesPreview";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import Link from "next/link";
 
 export function SparklesPreviewWholeBg() {
     return (
@@ -26,14 +27,16 @@ export function SparklesPreviewWholeBg() {
                 <SparklesPreview />
             </div>
             <div className="flex justify-center text-center">
-                <HoverBorderGradient
-                    containerClassName="rounded-full"
-                    as="button"
-                    className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-                >
-                    <AceternityLogo />
-                    <span>Adopt Now!</span>
-                </HoverBorderGradient>
+                <Link href="/adoption">
+                    <HoverBorderGradient
+                        containerClassName="rounded-full"
+                        as="button"
+                        className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+                    >
+                        <AceternityLogo />
+                        <span>Adopt Now!</span>
+                    </HoverBorderGradient>
+                </Link>
             </div>
         </div>
     );
