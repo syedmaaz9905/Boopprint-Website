@@ -42,22 +42,8 @@ export function SparklesPreviewWholeBgAdoption() {
                     particleColor={isDarkMode ? "#fff" : "#000"}
                 />
             </div>
-            <div className="px-12 sm:px-20  mt-28 sm:mt-40">
-                <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="text-black dark:text-white font-semibold text-xl lg:text-3xl text-center"
-                >
-                   Making Pet Adoption Simple & Secure
-                </motion.h2>
-            </div>
-            <div className="px-12 sm:px-24 lg:px-40">
-                <TextGenerateEffect words={fullDescription} className="font-normal text-sm sm:text-lg text-center" />
-            </div>
-
-            <div className="px-4 sm:px-20 mt-0 sm:mt-6">
-                <FeaturesSectionDemo />
+            <div className="px-12 sm:px-20 mt-28 sm:mt-40">
+                
             </div>
         </div>
     );
