@@ -1,11 +1,11 @@
-import { Spotlight } from "@/components/ui/Spotlight";
+import { SparklesPreviewWholeBgAbout } from "@/components/SparklesPreviewWholeBgAbout";
 
 export default function Page() {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <h1 className="text-2xl font-bold dark:text-white">
-                Welcome to the About Us Page
-            </h1>
+        <div className="min-h-screen flex items-start justify-center">
+            <div className="w-full">
+                <SparklesPreviewWholeBgAbout />
+            </div>
         </div>
     );
 }

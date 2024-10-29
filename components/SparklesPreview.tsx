@@ -23,7 +23,7 @@ export function SparklesPreview() {
                     background="transparent"
                     minSize={0.4}
                     maxSize={maxSize}
-                    particleDensity={800}
+                    particleDensity={600}
                     className="w-full h-full"
                     particleColor="#04428a"
                 />
