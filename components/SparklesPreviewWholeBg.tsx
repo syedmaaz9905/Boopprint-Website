@@ -5,6 +5,9 @@ import { TypewriterEffectSmoothDemo } from "./TypewriterEffectSmoothDemo";
 import { SparklesPreview } from "./SparklesPreview";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import Link from "next/link";
+import BgLightImg from '../app/assets/images/DogBgHome.png';
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function SparklesPreviewWholeBg() {
     return (
@@ -20,13 +23,13 @@ export function SparklesPreviewWholeBg() {
                     particleColor="#000"
                 />
             </div>
-            <div>
+            <div className="z-50">
                 <TypewriterEffectSmoothDemo />
             </div>
             <div>
                 <SparklesPreview />
             </div>
-            <div className="flex justify-center text-center">
+            <div className="flex justify-center text-center z-50">
                 <Link href="/adoption">
                     <HoverBorderGradient
                         containerClassName="rounded-full"
@@ -38,6 +41,15 @@ export function SparklesPreviewWholeBg() {
                     </HoverBorderGradient>
                 </Link>
             </div>
+
+            <motion.div
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="absolute bottom-0 w-full flex justify-center"
+            >
+                <Image src={BgLightImg} alt="Bg Image" />
+            </motion.div>
         </div>
     );
 }

@@ -9,7 +9,7 @@ export function SparklesPreview() {
     return (
         <div className="w-full bg-[#f7fafc] dark:bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
             <h1 className="text-3xl md:text-7xl lg:text-9xl font-bold text-center text-black dark:text-white relative z-20">
-                Boopprint
+                BoopPrint
             </h1>
             <div className="w-full max-w-xl md:max-w-2xl lg:max-w-4xl h-40 relative">
                 {/* Gradients */}

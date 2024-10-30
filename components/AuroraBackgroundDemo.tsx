@@ -5,6 +5,8 @@ import React from "react";
 import { AuroraBackground } from "./ui/aurora-background";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import Link from "next/link";
+import GifImage from "../app/assets/images/DogGifDark.gif";
+import Image from "next/image";
 
 export function AuroraBackgroundDemo() {
     return (
@@ -25,7 +27,6 @@ export function AuroraBackgroundDemo() {
                 <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
                     Find your new best friend now!
                 </div>
-                {/* <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2"> */}
                 <div className="flex justify-center text-center">
                     <Link href="/adoption">
                         <HoverBorderGradient
@@ -38,7 +39,11 @@ export function AuroraBackgroundDemo() {
                         </HoverBorderGradient>
                     </Link>
                 </div>
-                {/* </button> */}
+                {/* GIF Section Below Button */}
+                <div className="mt-6">
+                    <Image src={GifImage} alt="Animated GIF" width={200} height={200} unoptimized />
+                    {/* Or use <img src="/path-to-your-gif.gif" alt="Animated GIF" width="200" height="200" /> */}
+                </div>
             </motion.div>
         </AuroraBackground>
     );

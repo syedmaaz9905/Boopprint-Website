@@ -3,10 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SparklesCore } from "./ui/sparkles";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { motion } from "framer-motion";
-import { MovingBorderDemo } from "./MovingBorderDemo";
-import { Button } from "./ui/moving-border";
 import { FeaturesSectionDemo } from "./FeaturesSectionDemo";
-import { HeroScrollDemo } from "./HeroScrollDemo";
 import { CardHoverEffectDemo } from "./CardHoverEffectDemo";
 import { InfiniteMovingCardsDemo } from "./InfiniteMovingCardsDemo";
 

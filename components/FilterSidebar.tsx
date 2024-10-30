@@ -22,7 +22,7 @@ const FilterSidebar = () => {
             <div className="w-full">
                 <button
                     onClick={() => setPriceOpen(!priceOpen)}
-                    className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 font-semibold"
+                    className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 dark:text-gray-300 font-semibold"
                 >
                     Price Range
                     <span>{priceOpen ? "-" : "+"}</span>
@@ -55,7 +55,7 @@ const FilterSidebar = () => {
             <div className="w-full mt-4">
                 <button
                     onClick={() => setWeightOpen(!weightOpen)}
-                    className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 font-semibold"
+                    className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 dark:text-gray-300 font-semibold"
                 >
                     Weight
                     <span>{weightOpen ? "-" : "+"}</span>
@@ -88,7 +88,7 @@ const FilterSidebar = () => {
             <div className="w-full mt-4">
                 <button
                     onClick={() => setNameOpen(!nameOpen)}
-                    className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 font-semibold"
+                    className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 dark:text-gray-300 font-semibold"
                 >
                     Dog Name
                     <span>{nameOpen ? "-" : "+"}</span>
