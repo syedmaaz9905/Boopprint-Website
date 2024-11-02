@@ -4,6 +4,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { GrClose } from "react-icons/gr";
 import { usePathname } from "next/navigation";
+import { IoMdLogIn } from "react-icons/io";
 
 interface SidebarProps {
     theme: string;
@@ -33,12 +34,19 @@ const Sidebar = ({ theme, setTheme, setIsOpen, activeTab, setActiveTab }: Sideba
             className="fixed inset-0 bg-background text-foreground flex flex-col p-6"
         >
             <div className="flex justify-between items-center mb-8">
-                <button
-                    onClick={toggleTheme}
-                    className="flex items-center justify-center p-2 rounded-full bg-[#FBBF24] dark:bg-gray-700 transition"
-                >
-                    {theme === "light" ? <FiSun className="text-white" /> : <FiMoon />}
-                </button>
+                <div className="flex flex-row justify-start items-center gap-3">
+                    <button
+                        onClick={toggleTheme}
+                        className="flex items-center justify-center p-2 rounded-full bg-[#FBBF24] dark:bg-gray-700 transition"
+                    >
+                        {theme === "light" ? <FiSun className="text-white" /> : <FiMoon />}
+                    </button>
+                    <Link href={'/login'}>
+                        <button>
+                            <IoMdLogIn className="w-8 h-8 text-black dark:text-white duration-300 hover:text-blue-300 hover:scale-105" />
+                        </button>
+                    </Link>
+                </div>
                 <motion.button
                     onClick={() => setIsOpen(false)}
                     whileHover={{ rotate: 90 }}

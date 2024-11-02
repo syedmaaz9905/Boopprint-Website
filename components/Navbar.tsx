@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { FiSun, FiMoon, FiMenu } from "react-icons/fi";
 import Sidebar from "./Sidebar";
 import { AnimatePresence, motion } from "framer-motion";
+import { IoMdLogIn } from "react-icons/io";
 import LogoImg from '../app/assets/images/logo.png';
 
 type NavbarProps = {
@@ -87,6 +88,13 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
             </div>
 
             <div className="flex items-center space-x-4 relative">
+
+                <Link href={'/login'}>
+                    <button className="hidden md:flex">
+                        <IoMdLogIn className="w-8 h-8 text-black dark:text-white duration-300 hover:text-blue-300 hover:scale-105" />
+                    </button>
+                </Link>
+
                 <button
                     onClick={toggleTheme}
                     className="relative p-1 rounded-full hidden md:flex items-center justify-between gap-1 transition duration-300 md:text-lg sm:text-sm bg-gray-200 dark:bg-gray-700"

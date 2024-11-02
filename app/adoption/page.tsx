@@ -6,6 +6,8 @@ import SwiperSlider from "@/components/SwiperSlider";
 import { FlipWords } from "@/components/ui/flip-words";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Page() {
     // Dummy data for dogs
@@ -18,6 +20,13 @@ export default function Page() {
     const words = ["Perfect Buddy", "Your Companion", "Your Best Friend"];
 
     const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const [likedShake, setLikedShake] = useState(false);
+
+    const triggerShake = () => {
+        setLikedShake(true);
+        setTimeout(() => setLikedShake(false), 500);
+    };
 
     const checkDarkMode = () => {
         setIsDarkMode(document.documentElement.classList.contains("dark"));
@@ -60,11 +69,28 @@ export default function Page() {
                         />
                     </div>
                     <div className='mb-6 flex flex-row justify-center'>
-                        <p className="text-center text-lg sm:text-2xl font-semibold">
+                        <span className="text-center text-lg sm:text-2xl font-semibold">
                             Find Your<FlipWords words={words} />and Make a Life-Changing Connection Today!
-                        </p>
+                        </span>
                     </div>
-                    <SwiperSlider dogs={dogs} />
+                    <SwiperSlider dogs={dogs} onAccept={triggerShake} />
+                    <div className="flex flex-row justify-center items-center w-full flex-wrap gap-3 mt-4 z-20">
+                        <Link href="/viewAllPets">
+                            <button className="px-4 py-2 rounded-lg font-semibold text-white hover:-translate-y-1 bg-blue-600 dark:bg-blue-950 hover:bg-blue-700 dark:hover:bg-blue-700 transition duration-200 ease-in-out">
+                                View All Pets
+                            </button>
+                        </Link>
+                        <Link href="/viewLikedPets">
+                            <motion.button
+                                key={likedShake ? "shake-active" : "shake-inactive"}
+                                animate={{ x: [0, -15, 15, -15, 15, 0], rotateZ: [0, -5, 5, -5, 5, 0] }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                className="px-4 py-2 rounded-lg font-semibold text-white bg-green-600 dark:bg-green-950 hover:-translate-y-1 hover:bg-green-700 dark:hover:bg-green-700 transition duration-200 ease-in-out"
+                            >
+                                View Liked Pets
+                            </motion.button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

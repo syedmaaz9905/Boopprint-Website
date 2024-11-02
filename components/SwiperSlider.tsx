@@ -19,15 +19,16 @@ interface Dog {
 
 interface SwiperSliderProps {
     dogs: Dog[];
+    onAccept: any;
 }
 
 let EffectCoverflow: any;
 
-const SwiperSlider: FC<SwiperSliderProps> = ({ dogs }) => {
+const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
     const [isModulesReady, setIsModulesReady] = useState(false);
     const [swiperInstance, setSwiperInstance] = useState<any>(null);
     const [showFeedback, setShowFeedback] = useState<'accept' | 'reject' | null>(null);
-    const [selectedDog, setSelectedDog] = useState<Dog | null>(null); // State for modal
+    const [selectedDog, setSelectedDog] = useState<Dog | null>(null);
 
     useEffect(() => {
         EffectCoverflow = require('swiper/modules').EffectCoverflow;
@@ -38,7 +39,12 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs }) => {
 
     const handleFeedback = (type: 'accept' | 'reject') => {
         setShowFeedback(type);
-
+    
+        if (type === 'accept') {
+            console.log("Accepted dog, triggering shake animation");
+            onAccept();
+        }
+    
         setTimeout(() => {
             setShowFeedback(null);
             if (swiperInstance) swiperInstance.slideNext();
@@ -136,9 +142,10 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs }) => {
             <AnimatePresence>
                 {selectedDog && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
+                        exit={{ opacity: 0, scale: 0.5 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 20 }}
                         className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
                         onClick={() => setSelectedDog(null)}
                     >
@@ -151,12 +158,15 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs }) => {
                             <p className="text-gray-500 mt-2">Age: {selectedDog.age}</p>
                             <p className="text-gray-500">Weight: {selectedDog.weight}</p>
                             <p className="text-gray-500">Price: {selectedDog.price}</p>
-                            <button
+
+                            <motion.button
                                 onClick={() => setSelectedDog(null)}
-                                className="absolute top-2 right-2 text-red-500 text-xl"
+                                className="absolute top-1.5 right-1 text-red-500 text-xl"
+                                whileHover={{ rotate: 90 }}
+                                transition={{ duration: 0.3 }}
                             >
                                 <FaTimesCircle />
-                            </button>
+                            </motion.button>
                         </motion.div>
                     </motion.div>
                 )}
