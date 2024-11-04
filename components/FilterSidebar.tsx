@@ -10,14 +10,7 @@ const FilterSidebar = ({
     setWeightFilter,
     ageFilter,
     setAgeFilter,
-}: {
-    priceFilter: any;
-    setPriceFilter: any;
-    weightFilter: any;
-    setWeightFilter: any;
-    ageFilter: any;
-    setAgeFilter: any;
-}) => {
+}: any) => {
     const [priceOpen, setPriceOpen] = useState(false);
     const [weightOpen, setWeightOpen] = useState(false);
     const [ageOpen, setAgeOpen] = useState(false);

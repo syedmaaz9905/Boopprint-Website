@@ -27,7 +27,7 @@ export default function Page() {
 
     // Filter dogs based on the selected criteria
     const filteredDogs = dogs.filter(
-        (dog: any) =>
+        (dog) =>
             (priceFilter === 0 || dog.price <= priceFilter) &&
             (weightFilter === 0 || parseInt(dog.weight) <= weightFilter) &&
             (ageFilter === 0 || parseInt(dog.age) <= ageFilter)

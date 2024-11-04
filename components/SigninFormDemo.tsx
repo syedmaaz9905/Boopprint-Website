@@ -4,9 +4,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import {
-    IconBrandGithub,
     IconBrandGoogle,
-    IconBrandOnlyfans,
 } from "@tabler/icons-react";
 
 export function SigninFormDemo() {
@@ -39,7 +37,7 @@ export function SigninFormDemo() {
                 </button>
 
                 <div className="flex flex-row justify-center items-center gap-2 my-4">
-                    <p className="text-gray-600 dark:text-gray-400">Don't have an account?</p>
+                    <p className="text-gray-600 dark:text-gray-400">Dont have an account?</p>
                     <a href="/signup" className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 font-semibold duration-300">
                         Sign Up
                     </a>

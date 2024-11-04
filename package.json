@@ -27,8 +27,7 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.169.0",
-    "three-globe": "^2.34.1",
-    "three-mesh-bvh": "^0.8.0"
+    "three-globe": "^2.34.1"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -5,7 +5,6 @@ import { FiSun, FiMoon, FiMenu } from "react-icons/fi";
 import Sidebar from "./Sidebar";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoMdLogIn } from "react-icons/io";
-import LogoImg from '../app/assets/images/logo.png';
 
 type NavbarProps = {
     theme: string;

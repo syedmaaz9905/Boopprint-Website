@@ -16,7 +16,7 @@ interface SidebarProps {
 
 const Sidebar = ({ theme, setTheme, setIsOpen, activeTab, setActiveTab }: SidebarProps) => {
     const pathname = usePathname();
-
+    console.log(activeTab)
     const toggleTheme = () => {
         setTheme(theme === "light" ? "dark" : "light");
     };

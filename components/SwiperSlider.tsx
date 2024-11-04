@@ -10,16 +10,16 @@ import 'swiper/css/effect-coverflow';
 
 interface Dog {
     id: number;
-    name: any;
-    age: any;
-    imageSrc: any;
-    weight: any;
-    price: any;
+    name: string;
+    age: string;
+    imageSrc: string;
+    weight: string;
+    price: number;
 }
 
 interface SwiperSliderProps {
-    dogs: Dog[];
-    onAccept: any;
+    dogs: any;
+    onAccept: () => void;
 }
 
 let EffectCoverflow: any;
@@ -70,7 +70,7 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
                 modules={[EffectCoverflow]}
                 className="mySwiper duration-300 hover:-translate-y-1"
             >
-                {dogs.map((dog) => (
+                {dogs.map((dog: any) => (
                     <SwiperSlide key={dog.id} className="flex justify-center relative">
                         <div
                             className="relative w-64 h-80 rounded-lg overflow-hidden shadow-lg cursor-pointer"
