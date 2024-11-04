@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { SparklesCore } from "./ui/sparkles";
-import { SigninFormDemo } from "./SigninFormDemo";
+import { SignupFormDemo } from "./SignupFormDemo";
 
-export function SparklesPreviewWholeBgLogin() {
+export function SparklesPreviewWholeBgSignup() {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     const checkDarkMode = () => {
@@ -40,7 +40,7 @@ export function SparklesPreviewWholeBgLogin() {
             </div>
 
             <div className="z-20 w-full mt-32 sm:mt-0 mb-10 sm:mb-0">
-                <SigninFormDemo />
+                <SignupFormDemo />
             </div>
         </div>
     );
