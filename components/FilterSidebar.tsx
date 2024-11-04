@@ -3,13 +3,24 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const FilterSidebar = () => {
+const FilterSidebar = ({
+    priceFilter,
+    setPriceFilter,
+    weightFilter,
+    setWeightFilter,
+    ageFilter,
+    setAgeFilter,
+}: {
+    priceFilter: any;
+    setPriceFilter: any;
+    weightFilter: any;
+    setWeightFilter: any;
+    ageFilter: any;
+    setAgeFilter: any;
+}) => {
     const [priceOpen, setPriceOpen] = useState(false);
     const [weightOpen, setWeightOpen] = useState(false);
-    const [nameOpen, setNameOpen] = useState(false);
-
-    const [price, setPrice] = useState(500); // Default price
-    const [weight, setWeight] = useState(50); // Default weight
+    const [ageOpen, setAgeOpen] = useState(false);
 
     const accordionVariants = {
         hidden: { height: 0, opacity: 0 },
@@ -38,13 +49,20 @@ const FilterSidebar = () => {
                             type="range"
                             min="0"
                             max="1000"
-                            value={price}
-                            onChange={(e) => setPrice(Number(e.target.value))}
+                            value={priceFilter}
+                            onChange={(e) => setPriceFilter(Number(e.target.value))}
                             className="w-full"
                         />
-                        <div className="flex justify-between text-sm mt-2">
+                        <div className="flex justify-between items-center mt-2">
                             <span>$0</span>
-                            <span>${price}</span> {/* Current price value */}
+                            <input
+                                type="number"
+                                min="0"
+                                max="1000"
+                                value={priceFilter}
+                                onChange={(e) => setPriceFilter(Number(e.target.value))}
+                                className="w-20 text-center border rounded-md dark:bg-gray-800 dark:text-white"
+                            />
                             <span>$1000</span>
                         </div>
                     </div>
@@ -71,39 +89,55 @@ const FilterSidebar = () => {
                             type="range"
                             min="0"
                             max="100"
-                            value={weight}
-                            onChange={(e) => setWeight(Number(e.target.value))}
+                            value={weightFilter}
+                            onChange={(e) => setWeightFilter(Number(e.target.value))}
                             className="w-full"
                         />
-                        <div className="flex justify-between text-sm mt-2">
-                            <span>0 lbs</span>
-                            <span>{weight} lbs</span> {/* Current weight value */}
-                            <span>100 lbs</span>
+                        <div className="flex justify-between items-center mt-2">
+                            <span>0 kgs</span>
+                            <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value={weightFilter}
+                                onChange={(e) => setWeightFilter(Number(e.target.value))}
+                                className="w-20 text-center border rounded-md dark:bg-gray-800 dark:text-white"
+                            />
+                            <span>100 kgs</span>
                         </div>
                     </div>
                 </motion.div>
             </div>
 
-            {/* Name Filter */}
+            {/* Age Filter */}
             <div className="w-full mt-4">
                 <button
-                    onClick={() => setNameOpen(!nameOpen)}
+                    onClick={() => setAgeOpen(!ageOpen)}
                     className="w-full flex justify-between items-center py-2 px-4 border-b border-gray-300 text-gray-800 dark:text-gray-300 font-semibold"
                 >
-                    Dog Name
-                    <span>{nameOpen ? "-" : "+"}</span>
+                    Age
+                    <span>{ageOpen ? "-" : "+"}</span>
                 </button>
                 <motion.div
                     initial="hidden"
-                    animate={nameOpen ? "visible" : "hidden"}
+                    animate={ageOpen ? "visible" : "hidden"}
                     variants={accordionVariants}
                     className="overflow-hidden"
                 >
                     <div className="p-4">
-                        <select className="w-full p-2 border border-gray-300 rounded">
-                            <option value="A-Z">A to Z</option>
-                            <option value="Z-A">Z to A</option>
-                        </select>
+                        <input
+                            type="range"
+                            min="0"
+                            max="10"
+                            value={ageFilter}
+                            onChange={(e) => setAgeFilter(Number(e.target.value))}
+                            className="w-full"
+                        />
+                        <div className="flex justify-between text-sm mt-2">
+                            <span>0 yrs</span>
+                            <span>{ageFilter} yrs</span>
+                            <span>10 yrs</span>
+                        </div>
                     </div>
                 </motion.div>
             </div>

@@ -18,10 +18,20 @@ export default function Page() {
     ];
 
     const words = ["Perfect Buddy", "Your Companion", "Your Best Friend"];
-
     const [isDarkMode, setIsDarkMode] = useState(false);
-
     const [likedShake, setLikedShake] = useState(false);
+
+    const [priceFilter, setPriceFilter] = useState(0);
+    const [weightFilter, setWeightFilter] = useState(0);
+    const [ageFilter, setAgeFilter] = useState(0);    
+
+    // Filter dogs based on the selected criteria
+    const filteredDogs = dogs.filter(
+        (dog: any) =>
+            (priceFilter === 0 || dog.price <= priceFilter) &&
+            (weightFilter === 0 || parseInt(dog.weight) <= weightFilter) &&
+            (ageFilter === 0 || parseInt(dog.age) <= ageFilter)
+    );
 
     const triggerShake = () => {
         setLikedShake(true);
@@ -52,7 +62,14 @@ export default function Page() {
             <div className="w-full flex flex-col sm:grid grid-cols-5 gap-0">
                 {/* Left Sidebar (20%) */}
                 <div className="col-span-1 sm:min-h-screen flex items-center justify-center bg-white dark:bg-gray-950">
-                    <FilterSidebar />
+                    <FilterSidebar
+                        priceFilter={priceFilter}
+                        setPriceFilter={setPriceFilter}
+                        weightFilter={weightFilter}
+                        setWeightFilter={setWeightFilter}
+                        ageFilter={ageFilter}
+                        setAgeFilter={setAgeFilter}
+                    />
                 </div>
 
                 {/* Right Content (80%) */}
@@ -73,7 +90,7 @@ export default function Page() {
                             Find Your<FlipWords words={words} />and Make a Life-Changing Connection Today!
                         </span>
                     </div>
-                    <SwiperSlider dogs={dogs} onAccept={triggerShake} />
+                    <SwiperSlider dogs={filteredDogs} onAccept={triggerShake} />
                     <div className="flex flex-row justify-center items-center w-full flex-wrap gap-3 mt-4 z-20">
                         <Link href="/viewAllPets">
                             <button className="px-4 py-2 rounded-lg font-semibold text-white hover:-translate-y-1 bg-blue-600 dark:bg-blue-950 hover:bg-blue-700 dark:hover:bg-blue-700 transition duration-200 ease-in-out">

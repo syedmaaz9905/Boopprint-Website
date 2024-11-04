@@ -39,12 +39,12 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
 
     const handleFeedback = (type: 'accept' | 'reject') => {
         setShowFeedback(type);
-    
+
         if (type === 'accept') {
             console.log("Accepted dog, triggering shake animation");
             onAccept();
         }
-    
+
         setTimeout(() => {
             setShowFeedback(null);
             if (swiperInstance) swiperInstance.slideNext();
@@ -58,6 +58,7 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
                 grabCursor
                 centeredSlides
                 slidesPerView="auto"
+                allowTouchMove={false}
                 coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
@@ -146,22 +147,41 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.5 }}
                         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                        className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
                         onClick={() => setSelectedDog(null)}
                     >
                         <motion.div
-                            className="bg-white dark:bg-gray-950 rounded-lg p-6 w-11/12 max-w-md mx-auto relative"
+                            className="bg-white dark:bg-gray-950 rounded-lg p-6 w-11/12 max-w-md mx-auto relative shadow-lg overflow-hidden"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <Image src={selectedDog.imageSrc} alt={selectedDog.name} width={400} height={300} className="rounded-md object-cover" />
-                            <h3 className="text-2xl font-semibold mt-4">{selectedDog.name}</h3>
-                            <p className="text-gray-500 mt-2">Age: {selectedDog.age}</p>
-                            <p className="text-gray-500">Weight: {selectedDog.weight}</p>
-                            <p className="text-gray-500">Price: {selectedDog.price}</p>
+                            <div className="relative w-full h-56 overflow-hidden rounded-md">
+                                <Image
+                                    src={selectedDog.imageSrc}
+                                    alt={selectedDog.name}
+                                    layout="fill"
+                                    objectFit="contain"
+                                    className="rounded-md"
+                                />
+                            </div>
+
+                            <div className="mt-6">
+                                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-1">
+                                    {selectedDog.name}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                    Age: <span className="font-medium">{selectedDog.age}</span>
+                                </p>
+                                <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                    Weight: <span className="font-medium">{selectedDog.weight} lbs</span>
+                                </p>
+                                <p className="text-gray-600 dark:text-gray-300 text-lg mb-4">
+                                    Price: <span className="font-medium">${selectedDog.price}</span>
+                                </p>
+                            </div>
 
                             <motion.button
                                 onClick={() => setSelectedDog(null)}
-                                className="absolute top-1.5 right-1 text-red-500 text-xl"
+                                className="absolute top-1 right-1 text-red-500 text-2xl hover:text-red-600"
                                 whileHover={{ rotate: 90 }}
                                 transition={{ duration: 0.3 }}
                             >
@@ -171,6 +191,7 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
         </div>
     );
 };
