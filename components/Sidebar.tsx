@@ -31,7 +31,7 @@ const Sidebar = ({ theme, setTheme, setIsOpen, activeTab, setActiveTab }: Sideba
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-background text-foreground flex flex-col p-6"
+            className="fixed inset-0 bg-background text-foreground flex flex-col p-6 z-50"
         >
             <div className="flex justify-between items-center mb-8">
                 <div className="flex flex-row justify-start items-center gap-3">

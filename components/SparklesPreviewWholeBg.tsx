@@ -23,13 +23,13 @@ export function SparklesPreviewWholeBg() {
                     particleColor="#000"
                 />
             </div>
-            <div className="z-50">
+            <div className="z-40">
                 <TypewriterEffectSmoothDemo />
             </div>
             <div>
                 <SparklesPreview />
             </div>
-            <div className="flex justify-center text-center z-50">
+            <div className="flex justify-center text-center z-40">
                 <Link href="/adoption">
                     <HoverBorderGradient
                         containerClassName="rounded-full"
