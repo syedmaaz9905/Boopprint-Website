@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils";
 import {
     IconAdjustmentsBolt,
     IconCloud,
-    IconCurrencyDollar,
     IconEaseInOut,
     IconHeart,
     IconHelp,
+    IconMicroscope,
     IconRouteAltLeft,
     IconTerminal2,
 } from "@tabler/icons-react";
@@ -25,10 +25,10 @@ export function FeaturesSectionDemo() {
             icon: <IconEaseInOut />,
         },
         {
-            title: "Affordable Adoption Plans",
+            title: "Free Virtual Microchipping",
             description:
-                "With accessible pricing, we make adoption affordable for everyone.",
-            icon: <IconCurrencyDollar />,
+                "With every adoption comes with a free virtual microchip from Boopprint!",
+            icon: <IconMicroscope />,
         },
         {
             title: "Reliable & Secure Platform",

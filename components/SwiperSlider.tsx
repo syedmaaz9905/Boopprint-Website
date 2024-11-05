@@ -15,6 +15,10 @@ interface Dog {
     imageSrc: string;
     weight: string;
     price: number;
+    type: string;
+    locationType: string;
+    color: string;
+    gender: string;
 }
 
 interface SwiperSliderProps {
@@ -168,15 +172,30 @@ const SwiperSlider: FC<SwiperSliderProps> = ({ dogs, onAccept }) => {
                                 <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-1">
                                     {selectedDog.name}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg">
-                                    Age: <span className="font-medium">{selectedDog.age}</span>
-                                </p>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg">
-                                    Weight: <span className="font-medium">{selectedDog.weight} lbs</span>
-                                </p>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg mb-4">
-                                    Price: <span className="font-medium">${selectedDog.price}</span>
-                                </p>
+                                <div className='flex flex-col sm:flex-row justify-start sm:justify-between items-start sm:items-center'>
+                                    <div className='flex flex-col gap-1.5'>
+                                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                            Age: <span className="font-medium">{selectedDog.age}</span>
+                                        </p>
+                                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                            Weight: <span className="font-medium">{selectedDog.weight} lbs</span>
+                                        </p>
+                                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                            Gender: <span className="font-medium">{selectedDog.gender}</span>
+                                        </p>
+                                    </div>
+                                    <div className='flex flex-col gap-1.5'>
+                                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                            Type: <span className="font-medium">{selectedDog.type}</span>
+                                        </p>
+                                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                            Location: <span className="font-medium">{selectedDog.locationType}</span>
+                                        </p>
+                                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                            Color: <span className="font-medium">{selectedDog.color}</span>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
                             <motion.button

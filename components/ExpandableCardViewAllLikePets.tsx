@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import DogImg from '@/app/assets/images/dog.png';
+import DogImg from '@/app/assets/images/dog1.jpg';
 
 export function ExpandableCardViewAllLikePets() {
     const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
