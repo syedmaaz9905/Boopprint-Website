@@ -45,6 +45,14 @@ const Navbar = ({ theme, setTheme }: NavbarProps) => {
         };
     }, []);
 
+    useEffect(() => {
+        if (isSidebarOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    }, [isSidebarOpen]);
+
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "Adoption", href: "/adoption" },

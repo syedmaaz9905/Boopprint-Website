@@ -31,7 +31,7 @@ const Sidebar = ({ theme, setTheme, setIsOpen, activeTab, setActiveTab }: Sideba
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-background text-foreground flex flex-col p-6 z-50"
+            className="fixed inset-0 min-h-screen h-full bg-background text-foreground flex flex-col p-6 z-50"
         >
             <div className="flex justify-between items-center mb-8">
                 <div className="flex flex-row justify-start items-center gap-3">
@@ -41,7 +41,7 @@ const Sidebar = ({ theme, setTheme, setIsOpen, activeTab, setActiveTab }: Sideba
                     >
                         {theme === "light" ? <FiSun className="text-white" /> : <FiMoon />}
                     </button>
-                    <Link href={'/login'}>
+                    <Link href={'/login'} className="w-8 h-8">
                         <button>
                             <IoMdLogIn className="w-8 h-8 text-black dark:text-white duration-300 hover:text-blue-300 hover:scale-105" />
                         </button>
